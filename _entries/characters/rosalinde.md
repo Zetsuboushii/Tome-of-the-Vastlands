@@ -26,7 +26,6 @@ alignment:
 alive: true
 relationships:
   - [  ]
-published: false
 ---
 
 <!--more-->

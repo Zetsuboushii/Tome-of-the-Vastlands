@@ -7,7 +7,7 @@ categories:
 character_title: Nachfahrin des Meeres
 race: Nixen
 sex: w
-height: 1.72
+height: 1.85
 weight: 60
 bust: 90
 underbust: 75
