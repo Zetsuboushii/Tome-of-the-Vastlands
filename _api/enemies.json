@@ -14,7 +14,8 @@ layout: none
     "ac": {{ enemy.ac }},
     "movement": [
       {% for move in enemy.move %}
-      "{{ move }}"{% unless forloop.last %},{% endunless %}
+      {% assign move_new = move | split: " " %}
+      ["{{ move_new[0] }}", "{{ move_new[1] }}"]{% unless forloop.last %},{% endunless %}
       {% endfor %}
     ],
     "str": {{ enemy.str }},

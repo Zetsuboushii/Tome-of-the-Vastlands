@@ -4,18 +4,311 @@ layout: none
 [
 {% for place in site.entries %}
 {% if place.category == "places" %}
+{% assign init_count = place.url | split: "/" | size | plus: 1 %}
+{% if init_count == 4 %}
 {% if counter > 0 %},{% endif %}
 {
-    "name": "{{ place.title }}",
-    "subtitle": "{{ place.subtitle }}",
-    "supplement": "{{ place.supplement }}",
-    "natlang": ["{{ place.natlang[0] }}", "{{ place.natlang[1] }}"],
-    "demography": {% if place.demography %}{{ place.demography }}{% else %}0{% endif %},
-    "placetype": "{{ place.placetype }}",
-    "system": "{{ place.system }}",
-    "leader": ["{{ place.leader[0] }}", "{{ place.leader[1] }}"],
-    "capital": "{{ place.capital }}"
+"name": "{{ place.title }}",
+{% if place.subtitle %}
+"subtitle": "{{ place.subtitle }}",
+{% endif %}
+{% if place.supplement %}
+"supplement": "{{ place.supplement }}",
+{% endif %}
+{% if place.natlang %}
+"natlang": ["{{ place.natlang[0] }}", "{{ place.natlang[1] }}"],
+{% endif %}
+{% if place.demography %}
+"demography": {{ place.demography }},
+{% endif %}
+"placetype": "{{ place.placetype }}",
+{% if place.leader %}
+"system": "{{ place.system }}",
+{% endif %}
+{% if place.leader %}
+"leader": ["{{ place.leader[0] }}", "{{ place.leader[1] }}"],
+{% endif %}
+{% if place.capital %}
+"capital": "{{ place.capital }}",
+{% endif %}
+
+{% if place.content %}
+{% assign content_parts = place.content | split: '<h2' %}
+{% assign excerpt = place.excerpt | replace: "\r\n", " " | replace: "\r", " " | replace: "\n", " " %}
+"content": {
+"excerpt": "{{ excerpt | strip_html | strip }}",
+"sections": [
+{% for part in content_parts offset: 1 %}
+{% assign section_title = part | split: '</h2' | first | split: '>' | last | strip_html | strip %}
+{% assign section_content = part | split: '</h2>' | last | split: '</h2>' | first | strip_html | strip | replace: "\r\n", " " | replace: "\n\r", " " | replace: "\r", " " | replace: "\n", " " %}
+{
+"title": "{{ section_title }}",
+"text": "{{ section_content }}"
+}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
+},
+{% endif %}
+{% assign current_page_url = place.url %}
+{% assign current_page_url_count = current_page_url | split: "/" | size | plus: 1 %}
+{% assign filtered_entries = site.entries | where_exp: "p", "p.url != current_page_url" %}
+{% assign filtered_entries = filtered_entries | where_exp: "p", "p.url contains current_page_url" | sort: 'title' %}
+{% if filtered_entries.size > 0 %}
+"contains": [
+{% for item in filtered_entries %}
+{% assign new_page_url_count = item.url | split: "/" | size %}
+{% if new_page_url_count <= current_page_url_count %}
+
+
+
+{
+"name": "{{ item.title }}",
+{% if item.subtitle %}
+"subtitle": "{{ item.subtitle }}",
+{% endif %}
+{% if item.supplement %}
+"supplement": "{{ item.supplement }}",
+{% endif %}
+{% if item.natlang %}
+"natlang": ["{{ item.natlang[0] }}", "{{ item.natlang[1] }}"],
+{% endif %}
+{% if item.demography %}
+"demography": {{ item.demography }},
+{% endif %}
+"placetype": "{{ item.placetype }}",
+{% if item.leader %}
+"system": "{{ item.system }}",
+{% endif %}
+{% if item.leader %}
+"leader": ["{{ item.leader[0] }}", "{{ item.leader[1] }}"],
+{% endif %}
+{% if item.capital %}
+"capital": "{{ item.capital }}",
+{% endif %}
+{% if item.content %}
+{% assign content_parts = item.content | split: '<h2' %}
+{% assign excerpt = item.excerpt | replace: "\r\n", " " | replace: "\r", " " | replace: "\n", " " %}
+"content": {
+"excerpt": "{{ excerpt | strip_html | strip }}",
+"sections": [
+{% for part in content_parts offset: 1 %}
+{% assign section_title = part | split: '</h2' | first | split: '>' | last | strip_html | strip %}
+{% assign section_content = part | split: '</h2>' | last | split: '</h2>' | first | strip_html | strip | replace: "\r\n", " " | replace: "\n\r", " " | replace: "\r", " " | replace: "\n", " " %}
+{
+"title": "{{ section_title }}",
+"text": "{{ section_content }}"
+}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
+},
+{% endif %}
+{% assign current_page_url_1 = item.url %}
+{% assign current_page_url_count_1 = current_page_url_1 | split: "/" | size | plus: 1 %}
+{% assign filtered_entries_1 = site.entries | where_exp: "p", "p.url != current_page_url_1" %}
+{% assign filtered_entries_1 = filtered_entries_1 | where_exp: "p", "p.url contains current_page_url_1" | sort: 'title' %}
+{% if filtered_entries_1.size > 0 %}
+"contains": [
+{% for item_1 in filtered_entries_1 %}
+{% assign new_page_url_count_1 = item_1.url | split: "/" | size %}
+{% if new_page_url_count_1 <= current_page_url_count_1 %}
+
+
+
+{
+"name": "{{ item_1.title }}",
+{% if item_1.subtitle %}
+"subtitle": "{{ item_1.subtitle }}",
+{% endif %}
+{% if item_1.supplement %}
+"supplement": "{{ item_1.supplement }}",
+{% endif %}
+{% if item_1.natlang %}
+"natlang": ["{{ item_1.natlang[0] }}", "{{ item_1.natlang[1] }}"],
+{% endif %}
+{% if item_1.demography %}
+"demography": {{ item_1.demography }},
+{% endif %}
+"placetype": "{{ item_1.placetype }}",
+{% if item_1.leader %}
+"system": "{{ item_1.system }}",
+{% endif %}
+{% if item_1.leader %}
+"leader": ["{{ item_1.leader[0] }}", "{{ item_1.leader[1] }}"],
+{% endif %}
+{% if item_1.capital %}
+"capital": "{{ item_1.capital }}",
+{% endif %}
+{% if item_1.content %}
+{% assign content_parts = item_1.content | split: '<h2' %}
+{% assign excerpt = item_1.excerpt | replace: "\r\n", " " | replace: "\r", " " | replace: "\n", " " %}
+"content": {
+"excerpt": "{{ excerpt | strip_html | strip }}",
+"sections": [
+{% for part in content_parts offset: 1 %}
+{% assign section_title = part | split: '</h2' | first | split: '>' | last | strip_html | strip %}
+{% assign section_content = part | split: '</h2>' | last | split: '</h2>' | first | strip_html | strip | replace: "\r\n", " " | replace: "\n\r", " " | replace: "\r", " " | replace: "\n", " " %}
+{
+"title": "{{ section_title }}",
+"text": "{{ section_content }}"
+}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
+},
+{% endif %}
+{% assign current_page_url_2 = item_1.url %}
+{% assign current_page_url_count_2 = current_page_url_2 | split: "/" | size | plus: 1 %}
+{% assign filtered_entries_2 = site.entries | where_exp: "p", "p.url != current_page_url_2" %}
+{% assign filtered_entries_2 = filtered_entries_2 | where_exp: "p", "p.url contains current_page_url_2" | sort: 'title' %}
+{% if filtered_entries_2.size > 0 %}
+"contains": [
+{% for item_2 in filtered_entries_2 %}
+{% assign new_page_url_count_2 = item_2.url | split: "/" | size %}
+{% if new_page_url_count_2 <= current_page_url_count_2 %}
+
+
+
+{
+"name": "{{ item_2.title }}",
+{% if item_2.subtitle %}
+"subtitle": "{{ item_2.subtitle }}",
+{% endif %}
+{% if item_2.supplement %}
+"supplement": "{{ item_2.supplement }}",
+{% endif %}
+{% if item_2.natlang %}
+"natlang": ["{{ item_2.natlang[0] }}", "{{ item_2.natlang[1] }}"],
+{% endif %}
+{% if item_2.demography %}
+"demography": {{ item_2.demography }},
+{% endif %}
+"placetype": "{{ item_2.placetype }}",
+{% if item_2.leader %}
+"system": "{{ item_2.system }}",
+{% endif %}
+{% if item_2.leader %}
+"leader": ["{{ item_2.leader[0] }}", "{{ item_2.leader[1] }}"],
+{% endif %}
+{% if item_2.capital %}
+"capital": "{{ item_2.capital }}",
+{% endif %}
+{% if item_2.content %}
+{% assign content_parts = item_2.content | split: '<h2' %}
+{% assign excerpt = item_2.excerpt | replace: "\r\n", " " | replace: "\r", " " | replace: "\n", " " %}
+"content": {
+"excerpt": "{{ excerpt | strip_html | strip }}",
+"sections": [
+{% for part in content_parts offset: 1 %}
+{% assign section_title = part | split: '</h2' | first | split: '>' | last | strip_html | strip %}
+{% assign section_content = part | split: '</h2>' | last | split: '</h2>' | first | strip_html | strip | replace: "\r\n", " " | replace: "\n\r", " " | replace: "\r", " " | replace: "\n", " " %}
+{
+"title": "{{ section_title }}",
+"text": "{{ section_content }}"
+}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
+},
+{% endif %}
+{% assign current_page_url_3 = item_2.url %}
+{% assign current_page_url_count_3 = current_page_url_3 | split: "/" | size | plus: 1 %}
+{% assign filtered_entries_3 = site.entries | where_exp: "p", "p.url != current_page_url_3" %}
+{% assign filtered_entries_3 = filtered_entries_3 | where_exp: "p", "p.url contains current_page_url_3" | sort: 'title' %}
+{% if filtered_entries_3.size > 0 %}
+"contains": [
+{% for item_3 in filtered_entries_3 %}
+{% assign new_page_url_count_3 = item_3.url | split: "/" | size %}
+{% if new_page_url_count_3 <= current_page_url_count_3 %}
+
+
+
+{
+"name": "{{ item_3.title }}",
+{% if item_3.subtitle %}
+"subtitle": "{{ item_3.subtitle }}",
+{% endif %}
+{% if item_3.supplement %}
+"supplement": "{{ item_3.supplement }}",
+{% endif %}
+{% if item_3.natlang %}
+"natlang": ["{{ item_3.natlang[0] }}", "{{ item_3.natlang[1] }}"],
+{% endif %}
+{% if item_3.demography %}
+"demography": {{ item_3.demography }},
+{% endif %}
+"placetype": "{{ item_3.placetype }}",
+{% if item_3.leader %}
+"system": "{{ item_3.system }}",
+{% endif %}
+{% if item_3.leader %}
+"leader": ["{{ item_3.leader[0] }}", "{{ item_3.leader[1] }}"],
+{% endif %}
+{% if item_3.capital %}
+"capital": "{{ item_3.capital }}",
+{% endif %}
+{% if item_3.content %}
+{% assign content_parts = item_3.content | split: '<h2' %}
+{% assign excerpt = item_3.excerpt | replace: "\r\n", " " | replace: "\r", " " | replace: "\n", " " %}
+"content": {
+"excerpt": "{{ excerpt | strip_html | strip }}",
+"sections": [
+{% for part in content_parts offset: 1 %}
+{% assign section_title = part | split: '</h2' | first | split: '>' | last | strip_html | strip %}
+{% assign section_content = part | split: '</h2>' | last | split: '</h2>' | first | strip_html | strip | replace: "\r\n", " " | replace: "\n\r", " " | replace: "\r", " " | replace: "\n", " " %}
+{
+"title": "{{ section_title }}",
+"text": "{{ section_content }}"
+}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
+},
+{% endif %}
+{% assign current_page_url_4 = item_3.url %}
+{% assign current_page_url_count_4 = current_page_url_4 | split: "/" | size | plus: 1 %}
+{% assign filtered_entries_4 = site.entries | where_exp: "p", "p.url != current_page_url_4" %}
+{% assign filtered_entries_4 = filtered_entries_4 | where_exp: "p", "p.url contains current_page_url_4" | sort: 'title' %}
+{% if filtered_entries_4.size > 0 %}
+"contains": [
+{% for item_4 in filtered_entries_4 %}
+{% assign new_page_url_count_4 = item_4.url | split: "/" | size %}
+{% if new_page_url_count_4 <= current_page_url_count_4 %}
+"{{ item_4.title }}"{% unless forloop.last %},{% endunless %}
+{% endif %}
+{% endfor %}
+]
+{% endif %}
+}{% unless forloop.last %},{% endunless %}
+
+
+
+{% endif %}
+{% endfor %}
+]
+{% endif %}
+}{% unless forloop.last %},{% endunless %}
+
+
+
+{% endif %}
+{% endfor %}
+]
+{% endif %}
+}{% unless forloop.last %},{% endunless %}
+
+
+
+{% endif %}
+{% endfor %}
+]
+{% endif %}
+}{% unless forloop.last %},{% endunless %}
+
+
+
+{% endif %}
+{% endfor %}
+]
+{% endif %}
 }{% assign counter = counter | plus: 1 %}
+{% endif %}
 {% endif %}
 {% endfor %}
 ]
