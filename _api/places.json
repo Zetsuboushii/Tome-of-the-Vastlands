@@ -31,7 +31,6 @@ layout: none
 {% if place.capital %}
 "capital": "{{ place.capital }}",
 {% endif %}
-
 {% if place.content %}
 {% assign content_parts = place.content | split: '<h2' %}
 {% assign excerpt = place.excerpt | replace: "\r\n", " " | replace: "\r", " " | replace: "\n", " " %}

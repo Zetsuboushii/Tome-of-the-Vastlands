@@ -15,8 +15,7 @@ redirect_from:
 
 Menschen sind eine der vielfältigsten und anpassungsfähigsten Rassen. Sie zeichnen sich durch ihre kurze Lebensspanne
 von etwa {{ page.ageavg }} Jahren aus, die sie jedoch durch eine außergewöhnliche Anpassungsfähigkeit und Innovationskraft
-kompensieren.
-
+kompensieren.\n
 Menschen gibt es in allen Formen und Farben, mit unterschiedlichsten kulturellen Hintergründen und
 Traditionen. Ihre Siedlungen reichen von kleinen Dörfern bis hin zu riesigen Metropolen, und sie sind oft Pioniere in
 unbekannten Regionen. Dank ihrer Neugier und ihrem Streben nach Wissen haben Menschen oft einen starken Einfluss auf die

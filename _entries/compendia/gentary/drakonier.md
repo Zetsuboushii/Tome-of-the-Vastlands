@@ -8,8 +8,7 @@ domain:
 ---
 
 Die Drakonier eine beeindruckende und mystische Rasse, die in den eisigen Regionen der Welt heimisch ist. Diese
-drachenähnlichen Wesen besitzen schuppige Haut in schimmernden Farbtönen.
-
+drachenähnlichen Wesen besitzen schuppige Haut in schimmernden Farbtönen.\n
 Drakonier sind bekannt für ihre außergewöhnliche Widerstandsfähigkeit gegenüber Kälte. Ihre Kultur ist geprägt von einer
 tiefen Ehrfurcht vor den uralten Drachen, die sie als ihre Ahnen und Schutzpatrone verehren. In den gefrorenen Städten
 und Festungen, die sie in den Gletschern und Eisbergen errichtet haben, leben sie in einer strengen Hierarchie, die

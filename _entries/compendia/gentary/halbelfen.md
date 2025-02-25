@@ -16,8 +16,7 @@ redirect_from:
 
 Halbelfen sind eine faszinierende und einzigartige Rasse, die die Eigenschaften von Menschen und Elfen in sich vereint.
 Sie besitzen die spitzen Ohren und die natürliche Magieaffinität ihrer elfischen Vorfahren, aber die Lebensspanne eines
-Menschen.
-
+Menschen.\n
 Halbelfen sind oft Vermittler zwischen den Welten, da sie in beiden Kulturen heimisch sein können, obwohl sie manchmal
 das Gefühl haben, nirgends vollständig dazuzugehören. Ihre Vielseitigkeit und Anpassungsfähigkeit machen sie zu
 geschickten Diplomaten, Abenteurern und Magiern. Halbelfen neigen dazu, eine unbändige Neugier und einen starken Drang
