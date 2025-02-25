@@ -39,6 +39,29 @@ relationships:
   - [ Modaharius, Bekannter ]
   - [ Valerius, Bekannter ]
 lover: Thanatos
+likes:
+  - Natur
+  - Wald
+  - Grün
+  - Frühling
+  - Kuscheln
+  - Mythen
+  - Landesgeschichte
+  - Götterwelt
+  - Etymologie
+  - Gute Waffen
+  - Teamgeist
+  - Gute Zeit mit Freunden
+dislikes:
+  - Einsamkeit
+  - Ausgeschlossen sein
+  - Eine Belastung sein
+  - Veränderung
+  - Enttäuschung
+  - Entscheidungen
+  - Laute Städte
+  - Dreckige Städte
+  - Umweltverschmutzung
 ---
 
 Nayru ist eine Erbin der Drachenritter aus dem sagenumwobenen Orrin.
