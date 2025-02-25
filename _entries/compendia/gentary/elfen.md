@@ -10,8 +10,7 @@ redirect_from:
 ---
 
 Die Elfen sind ein edles und anmutiges Volk, tief verwurzelt in den alten Traditionen und der Magie ihrer Welt. Sie
-stehen in inniger Verbindung zur Göttin Farone, der Beschützerin der Natur und der Sternenlichter.
-
+stehen in inniger Verbindung zur Göttin Farone, der Beschützerin der Natur und der Sternenlichter.\n
 Elfen sind bekannt für ihre Langlebigkeit und ihre zeitlose Schönheit, die von einer Aura mystischer Weisheit begleitet
 wird. Ihre Gemeinschaften sind oft in tiefen Wäldern oder auf hohen Bergen verborgen, wo sie im Einklang mit der Natur
 leben und die Geheimnisse der Welt bewahren. Elfen besitzen eine natürliche Affinität zur Magie und Kunst, was sich in

@@ -15,32 +15,44 @@ layout: none
 "birthday": "{{ character.birthday }}",
 "aliases": [
 {% for alias in character.alias %}
-["{{ alias[0] }}", "{{ alias[1] }}"]{% unless forloop.last %},{% endunless %}
+{
+"alias": "{{ alias[0] }}",
+"origin": "{{ alias[1] }}"
+}{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ],
-"height": {% if character.height %}{{ character.height }}{% else %}0{% endif %},
-"weight": {% if character.weight %}{{ character.weight }}{% else %}0{% endif %},
-"bust": {% if character.bust %}{{ character.bust }}{% else %}0{% endif %},
-"underbust": {% if character.underbust %}{{ character.underbust }}{% else %}0{% endif %},
-"waist": {% if character.waist %}{{ character.waist }}{% else %}0{% endif %},
-"hip": {% if character.hip %}{{ character.hip }}{% else %}0{% endif %},
-"shoulder_width": {% if character.shoulder_width %}{{ character.shoulder_width }}{% else %}0{% endif %},
-"muscle_mass": {% if character.muscle_mass %}{{ character.muscle_mass }}{% else %}0{% endif %},
+"measurements": {
+{% if character.height %}"height": {{character.height}},{% endif %}
+{% if character.weight %}"weight": {{character.weight }},{% endif %}
+{% if character.bust %}"bust": {{character.bust}},{% endif %}
+{% if character.underbust %}"underbust": {{character.underbust }},{% endif %}
+{% if character.waist %}"waist": {{character.waist}},{% endif %}
+{% if character.hip %}"hip": {{character.hip }},{% endif %}
+{% if character.shoulder_width %}"shoulder_width": {{character.shoulder_width}},{% endif %}
+{% if character.muscle_mass %}"muscle_mass": {{character.muscle_mass }}{% endif %}
+},
 "functions": [
 {% for function in character.functions %}
 "{{ function }}"{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ],
-"class": "{{ character.class }}",
+"classes": {
+"baseclass": "{{ character.class }}",
+{% if character.subclasses %}
 "subclasses": [
 {% for subclass in character.subclasses %}
 "{{ subclass }}"{% unless forloop.last %},{% endunless %}
 {% endfor %}
-],
-"masterclass": "{{ character.masterclass }}",
+],{% endif %}
+{% if character.masterclass %}"masterclass": "{{ character.masterclass }}"{% endif %}
+},
+"nationality": "Faergria",
 "homes": [
 {% for home in character.homes %}
-"{{ home }}"{% unless forloop.last %},{% endunless %}
+{
+"place": "{{ home }}",
+"attachment": "Geburtsort"
+}{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ],
 "alignment": "{{ character.alignment }}",
@@ -62,11 +74,14 @@ layout: none
 "status": "{{ character.alive }}",
 "relationships": [
 {% for relation in character.relationships %}
-["{{ relation[0] }}", "{{ relation[1] }}"]{% unless forloop.last %},{% endunless %}
+{
+"character": "{{ relation[0] }}",
+"relation": "{{ relation[1] }}"
+}{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ],
 "lover": "{{ character.lover }}",
-"alt-images": [
+"alt_images": [
 {% for img in character.alt_imgs %}
 "{{ img | downcase }}"{% unless forloop.last %},{% endunless %}
 {% endfor %}
