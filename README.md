@@ -5,7 +5,7 @@
 <p align="center">Ein umfassendes Wiki für meine D&D-Kampagnen</p>
 <br>
 <p align="center">
-  <img src="https://img.shields.io/maintenance/yes/2025"  alt=""/>
+  <img src="https://img.shields.io/maintenance/no/2025"  alt=""/>
 </p>
 
 <h2>Table of Contents</h3>
@@ -29,7 +29,7 @@
 Dieses Wiki dient als ergänzendes Tool für Sessions, indem Lore und Gameplay-Mechaniken schnell und einfach nachgeschaut
 werden können.
 
-Die Seite ist unter https://tome.zetsuboushii.site/ erreichbar.
+Die Seite ist unter https://v2.tome.zetsuboushii.site/ erreichbar.
 
 ## 2. Mitwirkende
 
@@ -40,7 +40,7 @@ Die Seite ist unter https://tome.zetsuboushii.site/ erreichbar.
 
 ## 3. API-Referenz
 
-Alle JSON-Files können unter dem Base-Path https://tome.zetsuboushii.site/api/ verfügbar.
+Alle JSON-Files können unter dem Base-Path https://v2.tome.zetsuboushii.site/api/ verfügbar.
 
 ### actions.json
 
